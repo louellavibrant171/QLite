@@ -1,9 +1,15 @@
+![QLite — 原生 macOS SQLite 数据库浏览器](docs/assets/banner-zh-CN.png)
+
 # QLite
 
 一个原生的 macOS SQLite 数据库查看器：打开数据库、管理数据表与表结构、编辑表中数据、
 执行复杂查询，并且支持在 Finder 中用 QuickLook 直接预览 `.sqlite` 文件。
 
 [English](README.md) · [更新日志](CHANGELOG.md) · [参与贡献](CONTRIBUTING.md)
+
+[下载最新版本](https://github.com/Clizo1209/QLite/releases/latest)
+
+![QLite 在 macOS 上浏览 SQLite 数据库](docs/assets/screenshot-main-zh-CN.png)
 
 ## 功能
 
@@ -54,7 +60,7 @@
 
 ### 使用发行版
 
-从 [releases 页面](https://github.com/qlite-app/QLite/releases) 下载 `QLite-<版本>.dmg`，
+从 [releases 页面](https://github.com/Clizo1209/QLite/releases) 下载 `QLite-<版本>.dmg`，
 把 **QLite.app** 拖到 **Applications**，然后启动一次，让系统注册 QuickLook 扩展。
 也提供 `.pkg` 安装包，它会自动完成扩展注册。
 
@@ -65,7 +71,7 @@
 
 ```bash
 brew install xcodegen
-git clone https://github.com/qlite-app/QLite.git
+git clone https://github.com/Clizo1209/QLite.git
 cd QLite
 make run
 ```

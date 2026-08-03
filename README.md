@@ -1,9 +1,15 @@
+![QLite — A native macOS SQLite browser](docs/assets/banner.png)
+
 # QLite
 
 A native macOS SQLite browser — open a database, manage its tables and structure, edit rows,
 run SQL, and preview any `.sqlite` file straight from Finder with QuickLook.
 
 [简体中文](README.zh-CN.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
+
+[Download the latest release](https://github.com/Clizo1209/QLite/releases/latest)
+
+![QLite browsing a SQLite database on macOS](docs/assets/screenshot-main-en.png)
 
 ## Features
 
@@ -60,7 +66,7 @@ run SQL, and preview any `.sqlite` file straight from Finder with QuickLook.
 
 ### From a release
 
-Download `QLite-<version>.dmg` from the [releases page](https://github.com/qlite-app/QLite/releases),
+Download `QLite-<version>.dmg` from the [releases page](https://github.com/Clizo1209/QLite/releases),
 drag **QLite.app** to **Applications**, and launch it once so macOS registers the QuickLook
 extensions. A `.pkg` installer is also published; it registers the extensions for you.
 
@@ -71,7 +77,7 @@ and choose **Open**, or run `xattr -dr com.apple.quarantine /Applications/QLite.
 
 ```bash
 brew install xcodegen
-git clone https://github.com/qlite-app/QLite.git
+git clone https://github.com/Clizo1209/QLite.git
 cd QLite
 make run
 ```
