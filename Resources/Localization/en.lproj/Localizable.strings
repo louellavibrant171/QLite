@@ -1,0 +1,283 @@
+/* Menu bar */
+"menu.about" = "About QLite";
+"menu.services" = "Services";
+"menu.hide" = "Hide QLite";
+"menu.hideOthers" = "Hide Others";
+"menu.showAll" = "Show All";
+"menu.settings" = "Settings…";
+"menu.quit" = "Quit QLite";
+
+"menu.file" = "File";
+"menu.newDatabase" = "New Database…";
+"menu.open" = "Open…";
+"menu.openRecent" = "Open Recent";
+"menu.noRecent" = "No Recent Databases";
+"menu.clearMenu" = "Clear Menu";
+"menu.closeWindow" = "Close Window";
+"menu.exportResult" = "Export Result…";
+"menu.welcome" = "Welcome to QLite";
+
+"menu.edit" = "Edit";
+"menu.undo" = "Undo";
+"menu.redo" = "Redo";
+"menu.cut" = "Cut";
+"menu.copy" = "Copy";
+"menu.paste" = "Paste";
+"menu.selectAll" = "Select All";
+"menu.find" = "Find…";
+
+"menu.database" = "Database";
+"menu.newTable" = "New Table…";
+"menu.addColumn" = "Add Column…";
+"menu.createIndex" = "Create Index…";
+"menu.insertRow" = "Insert Row";
+"menu.deleteRows" = "Delete Selected Rows";
+"menu.runQuery" = "Run Query";
+"menu.refresh" = "Refresh";
+"menu.vacuum" = "Vacuum";
+"menu.integrityCheck" = "Integrity Check";
+"menu.checkpointWAL" = "Checkpoint WAL";
+
+"menu.view" = "View";
+"menu.toggleSidebar" = "Toggle Sidebar";
+
+"menu.window" = "Window";
+"menu.minimize" = "Minimize";
+"menu.zoom" = "Zoom";
+"menu.bringAllToFront" = "Bring All to Front";
+
+"menu.help" = "Help";
+"menu.qliteHelp" = "QLite Help";
+
+/* Tabs */
+"tab.data" = "Data";
+"tab.structure" = "Structure";
+"tab.ddl" = "DDL";
+"tab.query" = "Query";
+"tab.info" = "Info";
+
+/* Object kinds */
+"kind.table" = "Table";
+"kind.view" = "View";
+"kind.index" = "Index";
+"kind.trigger" = "Trigger";
+"kind.tables" = "Tables";
+"kind.views" = "Views";
+"kind.indexes" = "Indexes";
+"kind.triggers" = "Triggers";
+
+/* Sidebar */
+"sidebar.filter" = "Filter objects";
+"sidebar.objectCount" = "%d objects";
+"sidebar.newTable" = "New table (⌘T)";
+"sidebar.dropSelected" = "Drop the selected object";
+"sidebar.addColumn" = "Add Column…";
+"sidebar.createIndex" = "Create Index…";
+"sidebar.rename" = "Rename…";
+"sidebar.emptyTable" = "Empty Table…";
+"sidebar.copyCreate" = "Copy CREATE Statement";
+"sidebar.queryThis" = "Query This Object";
+"sidebar.drop" = "Drop…";
+"sidebar.confirmDrop.title" = "Drop “%@”?";
+"sidebar.confirmDrop.message" = "This cannot be undone.";
+"sidebar.confirmEmpty.title" = "Delete every row of “%@”?";
+"sidebar.confirmEmpty.message" = "The table structure is kept. This cannot be undone.";
+"sidebar.confirmEmpty.confirm" = "Delete Rows";
+
+/* Detail header */
+"header.summary" = "%@ · %d columns · %lld rows";
+"header.refresh" = "Refresh (⌘↩)";
+
+/* Data tab */
+"data.filterPlaceholder" = "WHERE clause, e.g. price > 10";
+"data.sort" = "Sort";
+"data.noSorting" = "No sorting";
+"data.insert" = "Insert";
+"data.edit" = "Edit";
+"data.delete" = "Delete";
+"data.insertHelp" = "Insert a new row (⌘I)";
+"data.page" = "Page %d of %d";
+"data.rowsPerPage" = "%d rows";
+"data.noTable" = "No table selected";
+"data.noTableHint" = "Choose a table or view in the sidebar.";
+"data.editRow" = "Edit Row…";
+"data.copyCSV" = "Copy as CSV";
+"data.deleteCount" = "Delete %d rows";
+"data.confirmDelete.title" = "Delete %d rows?";
+"data.rowsRange" = "Rows %d–%d of %lld";
+"data.noRows" = "No rows";
+"data.notATable" = "Indexes and triggers have no columns or rows. Their definition is in the DDL tab.";
+"data.noColumns" = "No columns";
+
+/* Structure tab */
+"structure.columns" = "Columns";
+"structure.addColumn" = "Add Column";
+"structure.name" = "Name";
+"structure.type" = "Type";
+"structure.notNull" = "Not Null";
+"structure.default" = "Default";
+"structure.key" = "Key";
+"structure.foreignKeys" = "Foreign Keys";
+"structure.column" = "Column";
+"structure.references" = "References";
+"structure.onUpdate" = "On Update";
+"structure.onDelete" = "On Delete";
+"structure.indexes" = "Indexes";
+"structure.createIndex" = "Create Index";
+"structure.noIndexes" = "No indexes";
+"structure.columnsHeader" = "Columns";
+"structure.unique" = "Unique";
+"structure.origin" = "Origin";
+"structure.renameColumn" = "Rename Column";
+"structure.renameColumn.message" = "New name for “%@”";
+"structure.dropColumn" = "Drop Column…";
+"structure.confirmDropColumn.title" = "Drop column “%@”?";
+"structure.confirmDropColumn.message" = "All data in this column is lost. SQLite refuses to drop primary key or indexed columns.";
+"structure.confirmDropIndex.title" = "Drop index “%@”?";
+"structure.dropIndexHelp" = "Drop index";
+"structure.constraintIndexHelp" = "Constraint indexes cannot be dropped directly";
+"structure.noObject" = "No object selected";
+"structure.noObjectHint" = "Choose a table or view in the sidebar.";
+
+/* DDL tab */
+"ddl.noSQL" = "-- No SQL recorded for this object.";
+"ddl.copy" = "Copy";
+"ddl.openInQuery" = "Open in Query Editor";
+"ddl.copied" = "CREATE statement copied";
+
+/* Query tab */
+"query.run" = "Run";
+"query.explain" = "Explain";
+"query.templates" = "Templates";
+"query.noResults" = "No results";
+"query.noResultsHint" = "Write SQL above and press ⌘R.";
+"query.plan" = "Query plan";
+"query.template.select" = "Select rows";
+"query.template.count" = "Count rows";
+"query.template.tables" = "List tables";
+"query.template.sizes" = "Table sizes";
+"query.template.create" = "Create table";
+
+/* Info tab */
+"info.file" = "File";
+"info.size" = "Size";
+"info.integrityCheck" = "Integrity Check";
+"info.vacuum" = "Vacuum";
+"info.reveal" = "Reveal in Finder";
+"info.sidecars" = "Journal files";
+"info.noSidecars" = "No -wal, -shm or -journal files next to this database.";
+"info.walPending" = "%@ of uncommitted data is waiting in the write-ahead log.";
+"info.checkpoint" = "Checkpoint WAL";
+
+/* Welcome */
+"welcome.subtitle" = "A native SQLite browser for macOS";
+"welcome.open" = "Open Database…";
+"welcome.new" = "New Database…";
+"welcome.recent" = "Recent";
+"welcome.noRecent" = "No recent databases";
+
+/* Sheets */
+"sheet.newTable" = "New Table";
+"sheet.tableName" = "Table name";
+"sheet.withoutRowID" = "WITHOUT ROWID";
+"sheet.columns" = "Columns";
+"sheet.create" = "Create";
+"sheet.cancel" = "Cancel";
+"sheet.addColumnTo" = "Add Column to %@";
+"sheet.add" = "Add";
+"sheet.name" = "Name";
+"sheet.type" = "Type";
+"sheet.notNull" = "NOT NULL";
+"sheet.unique" = "UNIQUE";
+"sheet.defaultValue" = "Default value (SQL expression)";
+"sheet.notNullHint" = "SQLite requires a default value when adding a NOT NULL column to a non-empty table.";
+"sheet.createIndexOn" = "Create Index on %@";
+"sheet.indexName" = "Index name";
+"sheet.renameTable" = "Rename Table";
+"sheet.newName" = "New name";
+"sheet.rename" = "Rename";
+"sheet.insertRow" = "Insert Row";
+"sheet.editRow" = "Edit Row";
+"sheet.insert" = "Insert";
+"sheet.save" = "Save";
+"sheet.exportRows" = "Export %d rows";
+"sheet.format" = "Format";
+"sheet.saveAs" = "Save…";
+
+/* Status messages */
+"status.rowInserted" = "Row inserted";
+"status.rowsUpdated" = "%d rows updated";
+"status.rowsDeleted" = "%d rows deleted";
+"status.rowsDeletedFrom" = "%d rows deleted from %@";
+"status.vacuumed" = "Database vacuumed";
+"status.checkpointed" = "Write-ahead log checkpointed (%lld pages)";
+"status.failed" = "%@ failed: %@";
+
+/* Operation names used in error messages */
+"op.reloadSchema" = "Reload schema";
+"op.loadObject" = "Load %@";
+"op.loadRows" = "Load rows";
+"op.insertRow" = "Insert row";
+"op.updateRow" = "Update row";
+"op.updateCell" = "Update cell";
+"op.deleteRows" = "Delete rows";
+"op.createTable" = "Create table";
+"op.addColumn" = "Add column";
+"op.renameColumn" = "Rename column";
+"op.dropColumn" = "Drop column";
+"op.renameTable" = "Rename table";
+"op.createIndex" = "Create index";
+"op.drop" = "Drop object";
+"op.emptyTable" = "Empty table";
+"op.vacuum" = "Vacuum";
+"op.integrityCheck" = "Integrity check";
+"op.checkpoint" = "Checkpoint WAL";
+"op.explain" = "Explain";
+"op.openDatabase" = "Could not open the database";
+
+/* Common */
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
+"common.delete" = "Delete";
+"common.drop" = "Drop";
+"common.dismiss" = "Dismiss";
+"common.yes" = "YES";
+"common.none" = "—";
+
+/* Settings */
+"settings.title" = "QLite Settings";
+"settings.general" = "General";
+"settings.fileTypes" = "File Types";
+"settings.quickLook" = "QuickLook";
+"settings.language" = "Language";
+"settings.language.system" = "System";
+"settings.language.hint" = "Applies immediately — no restart. Inside the macOS Open and Save panels, the parts drawn by the system (its sidebar and toolbar) keep the system language.";
+"panel.open" = "Open";
+"panel.create" = "Create";
+"panel.export" = "Export";
+"panel.openMessage" = "Choose a SQLite database";
+"panel.newMessage" = "Create a new SQLite database";
+"panel.saveAsLabel" = "Save As:";
+"settings.sidecars" = "Read -wal / -journal sidecar files";
+"settings.sidecars.hint" = "Shows data that has been committed to the write-ahead log but not yet merged into the main database file. Turning this off reads only the main file.";
+"settings.extensions.title" = "File extensions treated as databases";
+"settings.extensions.hint" = "Affects the Open panel and which files QLite offers to open. Checked extensions can also be bound to QLite as their default app.";
+"settings.extensions.add" = "Add extension";
+"settings.extensions.addPlaceholder" = "e.g. mydb";
+"settings.extensions.setDefault" = "Make QLite the default app for the checked extensions";
+"settings.extensions.reset" = "Reset to defaults";
+"settings.extensions.bound" = "Bound %d file types to QLite.";
+"settings.extensions.declaredOnly" = "Only extensions declared in QLite’s Info.plist can be bound as defaults: %@";
+"settings.quickLook.preview" = "Preview extension (Space bar in Finder)";
+"settings.quickLook.thumbnail" = "Thumbnail extension (Finder icons)";
+"settings.quickLook.hint" = "QuickLook extensions are provided by QLite.app itself. If previews do not update, re-register them below.";
+"settings.quickLook.reregister" = "Re-register with QuickLook";
+"settings.quickLook.done" = "QuickLook extensions re-registered.";
+"settings.quickLook.failed" = "Could not update the QuickLook registration: %@";
+
+/* QuickLook preview */
+"preview.moreTables" = "… and %d more tables";
+"preview.noTables" = "This database has no tables.";
+"preview.rows" = "%lld rows";
+"preview.walStale" = "A write-ahead log exists but could not be read; this shows the last checkpointed state.";
+"preview.walIncluded" = "Includes %@ of write-ahead log content.";

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QLite — macOS 原生 SQLite 数据库查看器</title>
+<meta name="description" data-en="A native macOS SQLite browser: manage tables and schema, edit rows, run SQL, and preview any .sqlite file in Finder with QuickLook."
+      data-zh="macOS 原生 SQLite 数据库查看器：管理数据表与表结构、编辑数据、执行查询，并支持在访达中用 QuickLook 预览。"
+      content="macOS 原生 SQLite 数据库查看器：管理数据表与表结构、编辑数据、执行查询，并支持在访达中用 QuickLook 预览。">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="#top">
+    <img src="assets/icon.png" alt="QLite" width="28" height="28">
+    <span>QLite</span>
+  </a>
+  <nav>
+    <a href="#features" data-en="Features" data-zh="功能">功能</a>
+    <a href="#wal" data-en="WAL" data-zh="WAL">WAL</a>
+    <a href="#quicklook" data-en="QuickLook" data-zh="QuickLook">QuickLook</a>
+    <a href="#install" data-en="Install" data-zh="安装">安装</a>
+    <a href="#faq" data-en="FAQ" data-zh="常见问题">常见问题</a>
+    <a class="external" href="https://github.com/Clizo1209/QLite">GitHub</a>
+  </nav>
+  <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-text">
+    <h1 data-en="A native SQLite browser for macOS" data-zh="macOS 原生的 SQLite 数据库查看器">macOS 原生的 SQLite 数据库查看器</h1>
+    <p class="lede"
+       data-en="Open a database, manage its tables and structure, edit rows, run any SQL — and preview a .sqlite file straight from Finder by pressing Space."
+       data-zh="打开数据库，管理数据表和表结构，编辑数据，执行任意 SQL —— 还能在访达里按一下空格直接预览 .sqlite 文件。">
+       打开数据库，管理数据表和表结构，编辑数据，执行任意 SQL —— 还能在访达里按一下空格直接预览 .sqlite 文件。</p>
+    <div class="cta">
+      <a class="button primary" href="https://github.com/Clizo1209/QLite/releases">
+        <span data-en="Download" data-zh="下载">下载</span>
+      </a>
+      <a class="button" href="https://github.com/Clizo1209/QLite">
+        <span data-en="Source on GitHub" data-zh="在 GitHub 上查看源码">在 GitHub 上查看源码</span>
+      </a>
+    </div>
+    <p class="meta">
+      <span data-en="macOS 14.4+ · Apple silicon &amp; Intel · MIT licensed · No telemetry"
+            data-zh="macOS 14.4+ · 支持 Apple 芯片与 Intel · MIT 许可 · 无任何遥测">macOS 14.4+ · 支持 Apple 芯片与 Intel · MIT 许可 · 无任何遥测</span>
+    </p>
+  </div>
+
+  <!-- A CSS rendering of the real interface; not a photograph of the app. -->
+  <div class="window" role="img"
+       aria-label="QLite window showing a table browser"
+       data-en-label="QLite window showing a table browser">
+    <div class="titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="title">sample.sqlite</span>
+    </div>
+    <div class="window-body">
+      <aside class="sidebar">
+        <div class="search"><span data-en="Filter objects" data-zh="过滤对象">过滤对象</span></div>
+        <div class="group" data-en="Tables" data-zh="表">表</div>
+        <div class="row selected">authors</div>
+        <div class="row">books</div>
+        <div class="group" data-en="Views" data-zh="视图">视图</div>
+        <div class="row">book_list</div>
+        <div class="group" data-en="Indexes" data-zh="索引">索引</div>
+        <div class="row">idx_books_author</div>
+      </aside>
+      <section class="detail">
+        <div class="detail-head">
+          <div>
+            <strong>authors</strong>
+            <small data-en="Table · 3 columns · 3 rows" data-zh="表 · 3 列 · 3 行">表 · 3 列 · 3 行</small>
+          </div>
+          <div class="tabs">
+            <span class="tab active" data-en="Data" data-zh="数据">数据</span>
+            <span class="tab" data-en="Structure" data-zh="结构">结构</span>
+            <span class="tab" data-en="DDL" data-zh="建表语句">建表语句</span>
+            <span class="tab" data-en="Query" data-zh="查询">查询</span>
+            <span class="tab" data-en="Info" data-zh="信息">信息</span>
+          </div>
+        </div>
+        <div class="toolbar">
+          <span class="field" data-en="WHERE clause, e.g. price &gt; 10" data-zh="WHERE 条件，例如 price &gt; 10">WHERE 条件，例如 price &gt; 10</span>
+          <span class="chip" data-en="Sort" data-zh="排序">排序</span>
+          <span class="chip solid" data-en="Insert" data-zh="插入">插入</span>
+        </div>
+        <table class="grid">
+          <thead><tr><th>id</th><th>name</th><th>country</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Ursula K. Le Guin</td><td>US</td></tr>
+            <tr><td>2</td><td>Italo Calvino</td><td>IT</td></tr>
+            <tr><td>3</td><td>Liu Cixin</td><td>CN</td></tr>
+            <tr class="empty"><td colspan="3"></td></tr>
+            <tr class="empty"><td colspan="3"></td></tr>
+            <tr class="empty"><td colspan="3"></td></tr>
+          </tbody>
+        </table>
+        <div class="statusbar">
+          <span data-en="Rows 1–3 of 3" data-zh="第 1–3 行, 共 3 行">第 1–3 行, 共 3 行</span>
+          <span>SQLite 3.51.0</span>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <h2 data-en="What it does" data-zh="它能做什么">它能做什么</h2>
+  <div class="cards">
+
+    <article class="card">
+      <h3 data-en="Browse and edit data" data-zh="浏览和编辑数据">浏览和编辑数据</h3>
+      <p data-en="Paged browsing at 50–1000 rows per page. Sorting and WHERE filtering run inside SQLite, so a million-row table stays responsive. Insert, edit and delete rows; NULLs, blobs and numbers are rendered distinctly."
+         data-zh="每页 50–1000 行分页浏览。排序和 WHERE 过滤都下推给 SQLite 执行，百万行表也不卡。可以插入、修改、删除行；NULL、BLOB 和数值分别以不同样式显示。">
+         每页 50–1000 行分页浏览。排序和 WHERE 过滤都下推给 SQLite 执行，百万行表也不卡。可以插入、修改、删除行；NULL、BLOB 和数值分别以不同样式显示。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-en="Manage the schema" data-zh="管理表结构">管理表结构</h3>
+      <p data-en="Build tables with a column editor: type, PRIMARY KEY, AUTOINCREMENT, NOT NULL, UNIQUE, DEFAULT, composite keys, WITHOUT ROWID. Add, rename and drop columns; rename and drop tables; create and drop indexes."
+         data-zh="图形化建表：列类型、主键、自增、非空、唯一、默认值、复合主键、WITHOUT ROWID。增加 / 重命名 / 删除列，重命名和删除表，创建和删除索引。">
+         图形化建表：列类型、主键、自增、非空、唯一、默认值、复合主键、WITHOUT ROWID。增加 / 重命名 / 删除列，重命名和删除表，创建和删除索引。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-en="Run real queries" data-zh="执行复杂查询">执行复杂查询</h3>
+      <p data-en="A multi-statement SQL editor with ⌘R, EXPLAIN QUERY PLAN, per-run timing and affected-row counts. Export any result or table page to CSV, TSV, JSON or INSERT statements."
+         data-zh="支持多语句的 SQL 编辑器，⌘R 执行，可查看 EXPLAIN QUERY PLAN、耗时和影响行数。查询结果或当前表页可导出为 CSV、TSV、JSON 或 INSERT 语句。">
+         支持多语句的 SQL 编辑器，⌘R 执行，可查看 EXPLAIN QUERY PLAN、耗时和影响行数。查询结果或当前表页可导出为 CSV、TSV、JSON 或 INSERT 语句。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-en="Inspect everything" data-zh="看清每一处细节">看清每一处细节</h3>
+      <p data-en="Columns, foreign keys and indexes in the Structure tab; the original CREATE statement in the DDL tab; page size, encoding, journal mode and user version in the Info tab, alongside integrity check and vacuum."
+         data-zh="结构标签页显示列、外键、索引；建表语句标签页显示原始 CREATE 语句；信息标签页显示页大小、编码、日志模式、user_version，并提供完整性检查和整理数据库。">
+         结构标签页显示列、外键、索引；建表语句标签页显示原始 CREATE 语句；信息标签页显示页大小、编码、日志模式、user_version，并提供完整性检查和整理数据库。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-en="Your file types" data-zh="你自己的后缀名">你自己的后缀名</h3>
+      <p data-en="Recognises .db, .db3, .sqlite, .sqlite3, .sqlitedb, .s3db, .sl3 out of the box, and any extension you add yourself. Bind them to QLite as their default app in one click."
+         data-zh="默认识别 .db、.db3、.sqlite、.sqlite3、.sqlitedb、.s3db、.sl3，也可以自己添加任意后缀名，并一键设为由 QLite 默认打开。">
+         默认识别 .db、.db3、.sqlite、.sqlite3、.sqlitedb、.s3db、.sl3，也可以自己添加任意后缀名，并一键设为由 QLite 默认打开。</p>
+    </article>
+
+    <article class="card">
+      <h3 data-en="English and 简体中文" data-zh="中英双语">中英双语</h3>
+      <p data-en="Switch language in Settings and the whole interface — menu bar included — changes immediately. No restart, no relaunch."
+         data-zh="在设置里切换语言，整个界面（含菜单栏）立刻跟着变，不需要重启应用。">
+         在设置里切换语言，整个界面（含菜单栏）立刻跟着变，不需要重启应用。</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="wal" class="section highlight">
+  <div class="split">
+    <div>
+      <h2 data-en="It reads the write-ahead log" data-zh="它会读预写日志">它会读预写日志</h2>
+      <p data-en="Most viewers open only the main database file, so rows an app has committed to its -wal file appear to be missing. QLite reads the -wal, -shm and -journal sidecars, in the app and in QuickLook previews alike."
+         data-zh="多数查看器只打开主库文件，于是应用已经提交到 -wal 里的数据看起来就像丢了。QLite 会连同 -wal、-shm、-journal 一起读——应用内和 QuickLook 预览里都一样。">
+         多数查看器只打开主库文件，于是应用已经提交到 -wal 里的数据看起来就像丢了。QLite 会连同 -wal、-shm、-journal 一起读——应用内和 QuickLook 预览里都一样。</p>
+      <ul>
+        <li data-en="Opening foo.db-wal opens foo.db." data-zh="直接打开 foo.db-wal 会自动打开 foo.db。">直接打开 foo.db-wal 会自动打开 foo.db。</li>
+        <li data-en="When the sidecars cannot be opened in place — a read-only volume, a sandboxed preview — QLite falls back to a temporary copy of the whole file set."
+            data-zh="当这些文件无法就地打开时（只读卷、沙盒中的预览扩展），会退回到「把整套文件复制到临时目录再打开」。">当这些文件无法就地打开时（只读卷、沙盒中的预览扩展），会退回到「把整套文件复制到临时目录再打开」。</li>
+        <li data-en="If even that is impossible it reads the main file immutably and says so, instead of quietly showing stale data."
+            data-zh="连复制都做不到时，才以 immutable 方式只读主库，并明确告诉你当前显示的是最后一次合并后的状态，而不是默默给你旧数据。">连复制都做不到时，才以 immutable 方式只读主库，并明确告诉你当前显示的是最后一次合并后的状态，而不是默默给你旧数据。</li>
+        <li data-en="A Checkpoint WAL action merges the log into the main file when you want it merged."
+            data-zh="需要时可以用「合并 WAL 日志」把日志并回主库。">需要时可以用「合并 WAL 日志」把日志并回主库。</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="panel-head" data-en="Journal files" data-zh="日志文件">日志文件</div>
+      <div class="panel-row"><code>sample.db-wal</code><span>132 KB</span></div>
+      <div class="panel-row"><code>sample.db-shm</code><span>32 KB</span></div>
+      <div class="panel-note"
+           data-en="132 KB of uncommitted data is waiting in the write-ahead log."
+           data-zh="预写日志中还有 132 KB 尚未合并到主库。">预写日志中还有 132 KB 尚未合并到主库。</div>
+      <div class="panel-action" data-en="Checkpoint WAL" data-zh="合并 WAL 日志">合并 WAL 日志</div>
+    </div>
+  </div>
+</section>
+
+<section id="quicklook" class="section">
+  <h2 data-en="Press Space in Finder" data-zh="在访达里按一下空格">在访达里按一下空格</h2>
+  <p class="section-lede"
+     data-en="QLite installs two QuickLook extensions. Select a database in Finder and press Space to see its tables, their columns, row counts and a few sample rows — without opening the app. Finder icons become a card listing the first table names."
+     data-zh="QLite 会安装两个 QuickLook 扩展。在访达里选中数据库按空格，就能看到库里的表、字段、行数和几行示例数据，完全不用打开应用。访达图标也会变成一张列着前几张表名字的卡片。">
+     QLite 会安装两个 QuickLook 扩展。在访达里选中数据库按空格，就能看到库里的表、字段、行数和几行示例数据，完全不用打开应用。访达图标也会变成一张列着前几张表名字的卡片。</p>
+  <div class="ql-demo">
+    <div class="ql-card">
+      <div class="ql-title">inventory.sqlite</div>
+      <div class="ql-sub" data-en="4 tables · 2 views · 6 indexes · 1.2 MB" data-zh="4 张表 · 2 个视图 · 6 个索引 · 1.2 MB">4 张表 · 2 个视图 · 6 个索引 · 1.2 MB</div>
+      <div class="ql-table">
+        <div class="ql-table-head"><span>products</span><span data-en="1,284 rows" data-zh="1,284 行">1,284 行</span></div>
+        <div class="ql-cols">id INTEGER · sku TEXT · name TEXT · price REAL · stock INTEGER</div>
+        <div class="ql-rows">
+          <div><span>1</span><span>SKU-0001</span><span>Desk lamp</span><span>39.0</span></div>
+          <div><span>2</span><span>SKU-0002</span><span>Notebook</span><span>4.5</span></div>
+          <div><span>3</span><span>SKU-0003</span><span>Keyboard</span><span>89.0</span></div>
+        </div>
+      </div>
+      <div class="ql-table">
+        <div class="ql-table-head"><span>orders</span><span data-en="7,910 rows" data-zh="7,910 行">7,910 行</span></div>
+        <div class="ql-cols">id INTEGER · product_id INTEGER · qty INTEGER · created_at DATETIME</div>
+      </div>
+    </div>
+    <p class="caption"
+       data-en="Both extensions can be turned on, off and re-registered from Settings — the usual remedy when Finder keeps showing a stale preview."
+       data-zh="两个扩展都能在设置里开关，并一键重新注册——访达预览没更新时通常就是靠它解决。">两个扩展都能在设置里开关，并一键重新注册——访达预览没更新时通常就是靠它解决。</p>
+  </div>
+</section>
+
+<section id="install" class="section">
+  <h2 data-en="Install" data-zh="安装">安装</h2>
+  <div class="split">
+    <div>
+      <h3 data-en="From a release" data-zh="使用发行版">使用发行版</h3>
+      <p data-en="Download the DMG, drag QLite to Applications, and launch it once so macOS registers the QuickLook extensions. The PKG does that registration for you."
+         data-zh="下载 DMG，把 QLite 拖进「应用程序」，启动一次让系统注册 QuickLook 扩展；PKG 安装包会自动完成注册。">下载 DMG，把 QLite 拖进「应用程序」，启动一次让系统注册 QuickLook 扩展；PKG 安装包会自动完成注册。</p>
+      <p class="note"
+         data-en="Builds are ad-hoc signed rather than notarized. If Gatekeeper blocks the first launch, right-click the app and choose Open, or run:"
+         data-zh="构建使用 ad-hoc 签名，没有做公证。如果 Gatekeeper 拦截首次启动，右键选择「打开」，或执行：">构建使用 ad-hoc 签名，没有做公证。如果 Gatekeeper 拦截首次启动，右键选择「打开」，或执行：</p>
+      <pre><code>xattr -dr com.apple.quarantine /Applications/QLite.app</code></pre>
+    </div>
+    <div>
+      <h3 data-en="From source" data-zh="从源码构建">从源码构建</h3>
+      <pre><code>brew install xcodegen
+git clone https://github.com/Clizo1209/QLite.git
+cd QLite
+make run</code></pre>
+      <p data-en="Requires macOS 14.4+, Xcode 15.3+ and XcodeGen. make test runs the unit tests, make dmg and make pkg build the installers."
+         data-zh="需要 macOS 14.4+、Xcode 15.3+ 和 XcodeGen。make test 跑单元测试，make dmg / make pkg 打安装包。">需要 macOS 14.4+、Xcode 15.3+ 和 XcodeGen。make test 跑单元测试，make dmg / make pkg 打安装包。</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <h2 data-en="Questions" data-zh="常见问题">常见问题</h2>
+  <div class="faq">
+
+    <details>
+      <summary data-en="Will it modify my database?" data-zh="它会改动我的数据库吗？">它会改动我的数据库吗？</summary>
+      <p data-en="Only when you ask it to. Browsing, previewing and querying never write. Row edits and schema changes run the SQL shown in the status bar; destructive actions ask first. QuickLook previews never touch your file — when a WAL has to be replayed they work on a temporary copy."
+         data-zh="只有你明确操作时才会。浏览、预览和查询都不会写入；改数据和改结构执行的 SQL 会显示在状态栏，破坏性操作都会先确认。QuickLook 预览绝不碰你的文件——需要重放 WAL 时用的是临时副本。">只有你明确操作时才会。浏览、预览和查询都不会写入；改数据和改结构执行的 SQL 会显示在状态栏，破坏性操作都会先确认。QuickLook 预览绝不碰你的文件——需要重放 WAL 时用的是临时副本。</p>
+    </details>
+
+    <details>
+      <summary data-en="Why isn’t it sandboxed / on the App Store?" data-zh="为什么没有沙盒、不上 App Store？">为什么没有沙盒、不上 App Store？</summary>
+      <p data-en="The App Sandbox grants access to the file you picked but not to its -wal / -shm / -journal neighbours, and it blocks registering QuickLook extensions and binding default apps. Those are exactly the features QLite exists to provide, so the app ships unsandboxed and outside the App Store. The two QuickLook extensions stay sandboxed."
+         data-zh="App Sandbox 只授予你选中的那个文件的权限，不含旁边的 -wal / -shm / -journal，并且禁止注册 QuickLook 扩展和设置默认打开方式——而这些恰好是 QLite 的核心功能。所以应用本体不开沙盒，也不在 App Store 分发；两个 QuickLook 扩展仍然是沙盒化的。">App Sandbox 只授予你选中的那个文件的权限，不含旁边的 -wal / -shm / -journal，并且禁止注册 QuickLook 扩展和设置默认打开方式——而这些恰好是 QLite 的核心功能。所以应用本体不开沙盒，也不在 App Store 分发；两个 QuickLook 扩展仍然是沙盒化的。</p>
+    </details>
+
+    <details>
+      <summary data-en="How large a database can it open?" data-zh="能打开多大的数据库？">能打开多大的数据库？</summary>
+      <p data-en="Rows are paged and sorting and filtering happen inside SQLite, so file size mostly does not matter. The query editor caps a single result at 10,000 rows so a runaway SELECT cannot exhaust memory. QuickLook previews sample a handful of rows per table, which keeps them instant on multi-gigabyte files."
+         data-zh="数据分页读取，排序和过滤都在 SQLite 内完成，文件多大基本无所谓。查询编辑器对单次结果限制 1 万行，避免失控的 SELECT 吃光内存。QuickLook 预览每张表只取几行示例，所以几个 GB 的库也是秒开。">数据分页读取，排序和过滤都在 SQLite 内完成，文件多大基本无所谓。查询编辑器对单次结果限制 1 万行，避免失控的 SELECT 吃光内存。QuickLook 预览每张表只取几行示例，所以几个 GB 的库也是秒开。</p>
+    </details>
+
+    <details>
+      <summary data-en="Can it edit a table without a primary key?" data-zh="没有主键的表能编辑吗？">没有主键的表能编辑吗？</summary>
+      <p data-en="Rows are addressed by rowid, and by the primary key for WITHOUT ROWID tables. A table with neither cannot be edited safely, so QLite disables editing and tells you why. Views are read-only."
+         data-zh="行通过 rowid 定位，WITHOUT ROWID 表则用主键定位。两者都没有的表无法安全定位到某一行，QLite 会禁用编辑并说明原因。视图是只读的。">行通过 rowid 定位，WITHOUT ROWID 表则用主键定位。两者都没有的表无法安全定位到某一行，QLite 会禁用编辑并说明原因。视图是只读的。</p>
+    </details>
+
+    <details>
+      <summary data-en="Does it phone home?" data-zh="它会联网上传数据吗？">它会联网上传数据吗？</summary>
+      <p data-en="No. There is no analytics, no update check and no network code of any kind. The only outbound link is the GitHub URL in the Help menu, which you have to click."
+         data-zh="不会。没有任何统计、更新检查或网络代码。唯一的外链是帮助菜单里的 GitHub 地址，而且要你自己点。">不会。没有任何统计、更新检查或网络代码。唯一的外链是帮助菜单里的 GitHub 地址，而且要你自己点。</p>
+    </details>
+
+  </div>
+</section>
+
+<section class="section shortcuts">
+  <h2 data-en="Keyboard" data-zh="快捷键">快捷键</h2>
+  <div class="keys">
+    <div><kbd>⌘O</kbd><span data-en="Open a database" data-zh="打开数据库">打开数据库</span></div>
+    <div><kbd>⌘N</kbd><span data-en="New database" data-zh="新建数据库">新建数据库</span></div>
+    <div><kbd>⌘1</kbd>–<kbd>⌘4</kbd><span data-en="Data · Structure · Query · Info" data-zh="数据 · 结构 · 查询 · 信息">数据 · 结构 · 查询 · 信息</span></div>
+    <div><kbd>⌘T</kbd><span data-en="New table" data-zh="新建表">新建表</span></div>
+    <div><kbd>⌘I</kbd><span data-en="Insert row" data-zh="插入行">插入行</span></div>
+    <div><kbd>⌘R</kbd><span data-en="Run query" data-zh="执行查询">执行查询</span></div>
+    <div><kbd>⌘F</kbd><span data-en="Focus the filter" data-zh="定位到过滤框">定位到过滤框</span></div>
+    <div><kbd>⌘E</kbd><span data-en="Export result" data-zh="导出结果">导出结果</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <img src="assets/icon-128.png" alt="" width="24" height="24">
+    <span>QLite</span>
+  </div>
+  <nav>
+    <a href="https://github.com/Clizo1209/QLite">GitHub</a>
+    <a href="https://github.com/Clizo1209/QLite/releases" data-en="Releases" data-zh="发行版">发行版</a>
+    <a href="https://github.com/Clizo1209/QLite/blob/main/CHANGELOG.md" data-en="Changelog" data-zh="更新日志">更新日志</a>
+    <a href="https://github.com/Clizo1209/QLite/blob/main/CONTRIBUTING.md" data-en="Contributing" data-zh="参与贡献">参与贡献</a>
+    <a href="https://github.com/Clizo1209/QLite/issues" data-en="Report an issue" data-zh="反馈问题">反馈问题</a>
+  </nav>
+  <p data-en="MIT licensed. Not affiliated with SQLite or Apple."
+     data-zh="MIT 许可。与 SQLite 和 Apple 均无隶属关系。">MIT 许可。与 SQLite 和 Apple 均无隶属关系。</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  QLite is not sandboxed. Three of its features cannot work inside the sandbox:
+	    * reading a database's -wal / -shm / -journal sidecars, which the sandbox does not
+	      grant when the user selects only the main file;
+	    * registering and enabling the QuickLook extensions (pluginkit / lsregister);
+	    * binding file extensions to QLite as their default application.
+	  The QuickLook extensions themselves stay sandboxed.
+	-->
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+</dict>
+</plist>

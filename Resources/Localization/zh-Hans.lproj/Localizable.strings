@@ -1,0 +1,283 @@
+/* 菜单栏 */
+"menu.about" = "关于 QLite";
+"menu.services" = "服务";
+"menu.hide" = "隐藏 QLite";
+"menu.hideOthers" = "隐藏其他";
+"menu.showAll" = "全部显示";
+"menu.settings" = "设置…";
+"menu.quit" = "退出 QLite";
+
+"menu.file" = "文件";
+"menu.newDatabase" = "新建数据库…";
+"menu.open" = "打开…";
+"menu.openRecent" = "打开最近使用";
+"menu.noRecent" = "没有最近打开的数据库";
+"menu.clearMenu" = "清除菜单";
+"menu.closeWindow" = "关闭窗口";
+"menu.exportResult" = "导出结果…";
+"menu.welcome" = "欢迎使用 QLite";
+
+"menu.edit" = "编辑";
+"menu.undo" = "撤销";
+"menu.redo" = "重做";
+"menu.cut" = "剪切";
+"menu.copy" = "拷贝";
+"menu.paste" = "粘贴";
+"menu.selectAll" = "全选";
+"menu.find" = "查找…";
+
+"menu.database" = "数据库";
+"menu.newTable" = "新建表…";
+"menu.addColumn" = "添加列…";
+"menu.createIndex" = "创建索引…";
+"menu.insertRow" = "插入行";
+"menu.deleteRows" = "删除选中行";
+"menu.runQuery" = "执行查询";
+"menu.refresh" = "刷新";
+"menu.vacuum" = "整理数据库";
+"menu.integrityCheck" = "完整性检查";
+"menu.checkpointWAL" = "合并 WAL 日志";
+
+"menu.view" = "显示";
+"menu.toggleSidebar" = "显示/隐藏边栏";
+
+"menu.window" = "窗口";
+"menu.minimize" = "最小化";
+"menu.zoom" = "缩放";
+"menu.bringAllToFront" = "前置全部窗口";
+
+"menu.help" = "帮助";
+"menu.qliteHelp" = "QLite 帮助";
+
+/* 标签页 */
+"tab.data" = "数据";
+"tab.structure" = "结构";
+"tab.ddl" = "建表语句";
+"tab.query" = "查询";
+"tab.info" = "信息";
+
+/* 对象类型 */
+"kind.table" = "表";
+"kind.view" = "视图";
+"kind.index" = "索引";
+"kind.trigger" = "触发器";
+"kind.tables" = "表";
+"kind.views" = "视图";
+"kind.indexes" = "索引";
+"kind.triggers" = "触发器";
+
+/* 边栏 */
+"sidebar.filter" = "过滤对象";
+"sidebar.objectCount" = "%d 个对象";
+"sidebar.newTable" = "新建表（⌘T）";
+"sidebar.dropSelected" = "删除选中的对象";
+"sidebar.addColumn" = "添加列…";
+"sidebar.createIndex" = "创建索引…";
+"sidebar.rename" = "重命名…";
+"sidebar.emptyTable" = "清空表…";
+"sidebar.copyCreate" = "拷贝 CREATE 语句";
+"sidebar.queryThis" = "查询该对象";
+"sidebar.drop" = "删除…";
+"sidebar.confirmDrop.title" = "确定删除「%@」？";
+"sidebar.confirmDrop.message" = "此操作无法撤销。";
+"sidebar.confirmEmpty.title" = "确定删除「%@」中的所有行？";
+"sidebar.confirmEmpty.message" = "表结构会保留。此操作无法撤销。";
+"sidebar.confirmEmpty.confirm" = "删除所有行";
+
+/* 详情标题栏 */
+"header.summary" = "%@ · %d 列 · %lld 行";
+"header.refresh" = "刷新（⌘↩）";
+
+/* 数据标签页 */
+"data.filterPlaceholder" = "WHERE 条件，例如 price > 10";
+"data.sort" = "排序";
+"data.noSorting" = "不排序";
+"data.insert" = "插入";
+"data.edit" = "编辑";
+"data.delete" = "删除";
+"data.insertHelp" = "插入新行（⌘I）";
+"data.page" = "第 %d 页，共 %d 页";
+"data.rowsPerPage" = "%d 行";
+"data.noTable" = "未选择表";
+"data.noTableHint" = "在左侧边栏选择一张表或视图。";
+"data.editRow" = "编辑该行…";
+"data.copyCSV" = "拷贝为 CSV";
+"data.deleteCount" = "删除 %d 行";
+"data.confirmDelete.title" = "确定删除 %d 行？";
+"data.rowsRange" = "第 %d–%d 行，共 %lld 行";
+"data.noRows" = "没有数据";
+"data.notATable" = "索引和触发器没有列和数据，它们的定义在「建表语句」标签页。";
+"data.noColumns" = "没有列";
+
+/* 结构标签页 */
+"structure.columns" = "列";
+"structure.addColumn" = "添加列";
+"structure.name" = "名称";
+"structure.type" = "类型";
+"structure.notNull" = "非空";
+"structure.default" = "默认值";
+"structure.key" = "键";
+"structure.foreignKeys" = "外键";
+"structure.column" = "列";
+"structure.references" = "引用";
+"structure.onUpdate" = "更新时";
+"structure.onDelete" = "删除时";
+"structure.indexes" = "索引";
+"structure.createIndex" = "创建索引";
+"structure.noIndexes" = "没有索引";
+"structure.columnsHeader" = "包含列";
+"structure.unique" = "唯一";
+"structure.origin" = "来源";
+"structure.renameColumn" = "重命名列";
+"structure.renameColumn.message" = "「%@」的新名称";
+"structure.dropColumn" = "删除列…";
+"structure.confirmDropColumn.title" = "确定删除列「%@」？";
+"structure.confirmDropColumn.message" = "该列的数据会全部丢失。SQLite 不允许删除主键列和被索引的列。";
+"structure.confirmDropIndex.title" = "确定删除索引「%@」？";
+"structure.dropIndexHelp" = "删除索引";
+"structure.constraintIndexHelp" = "由约束自动创建的索引不能直接删除";
+"structure.noObject" = "未选择对象";
+"structure.noObjectHint" = "在左侧边栏选择一张表或视图。";
+
+/* 建表语句标签页 */
+"ddl.noSQL" = "-- 该对象没有记录 SQL。";
+"ddl.copy" = "拷贝";
+"ddl.openInQuery" = "在查询编辑器中打开";
+"ddl.copied" = "已拷贝 CREATE 语句";
+
+/* 查询标签页 */
+"query.run" = "执行";
+"query.explain" = "查看执行计划";
+"query.templates" = "模板";
+"query.noResults" = "暂无结果";
+"query.noResultsHint" = "在上方编写 SQL 后按 ⌘R 执行。";
+"query.plan" = "执行计划";
+"query.template.select" = "查询数据";
+"query.template.count" = "统计行数";
+"query.template.tables" = "列出所有表";
+"query.template.sizes" = "各表规模";
+"query.template.create" = "创建表";
+
+/* 信息标签页 */
+"info.file" = "文件";
+"info.size" = "大小";
+"info.integrityCheck" = "完整性检查";
+"info.vacuum" = "整理数据库";
+"info.reveal" = "在访达中显示";
+"info.sidecars" = "日志文件";
+"info.noSidecars" = "该数据库旁边没有 -wal、-shm 或 -journal 文件。";
+"info.walPending" = "预写日志中还有 %@ 尚未合并到主库。";
+"info.checkpoint" = "合并 WAL 日志";
+
+/* 欢迎窗口 */
+"welcome.subtitle" = "macOS 原生 SQLite 数据库查看器";
+"welcome.open" = "打开数据库…";
+"welcome.new" = "新建数据库…";
+"welcome.recent" = "最近打开";
+"welcome.noRecent" = "还没有打开过数据库";
+
+/* 弹出面板 */
+"sheet.newTable" = "新建表";
+"sheet.tableName" = "表名";
+"sheet.withoutRowID" = "WITHOUT ROWID";
+"sheet.columns" = "列";
+"sheet.create" = "创建";
+"sheet.cancel" = "取消";
+"sheet.addColumnTo" = "为 %@ 添加列";
+"sheet.add" = "添加";
+"sheet.name" = "名称";
+"sheet.type" = "类型";
+"sheet.notNull" = "NOT NULL";
+"sheet.unique" = "UNIQUE";
+"sheet.defaultValue" = "默认值（SQL 表达式）";
+"sheet.notNullHint" = "向已有数据的表添加 NOT NULL 列时，SQLite 要求必须提供默认值。";
+"sheet.createIndexOn" = "为 %@ 创建索引";
+"sheet.indexName" = "索引名";
+"sheet.renameTable" = "重命名表";
+"sheet.newName" = "新名称";
+"sheet.rename" = "重命名";
+"sheet.insertRow" = "插入行";
+"sheet.editRow" = "编辑行";
+"sheet.insert" = "插入";
+"sheet.save" = "保存";
+"sheet.exportRows" = "导出 %d 行";
+"sheet.format" = "格式";
+"sheet.saveAs" = "保存…";
+
+/* 状态栏消息 */
+"status.rowInserted" = "已插入一行";
+"status.rowsUpdated" = "已更新 %d 行";
+"status.rowsDeleted" = "已删除 %d 行";
+"status.rowsDeletedFrom" = "已从 %2$@ 删除 %1$d 行";
+"status.vacuumed" = "数据库已整理";
+"status.checkpointed" = "预写日志已合并（%lld 页）";
+"status.failed" = "%@失败：%@";
+
+/* 出错时显示的操作名 */
+"op.reloadSchema" = "刷新结构";
+"op.loadObject" = "加载 %@";
+"op.loadRows" = "加载数据";
+"op.insertRow" = "插入行";
+"op.updateRow" = "更新行";
+"op.updateCell" = "更新单元格";
+"op.deleteRows" = "删除行";
+"op.createTable" = "创建表";
+"op.addColumn" = "添加列";
+"op.renameColumn" = "重命名列";
+"op.dropColumn" = "删除列";
+"op.renameTable" = "重命名表";
+"op.createIndex" = "创建索引";
+"op.drop" = "删除对象";
+"op.emptyTable" = "清空表";
+"op.vacuum" = "整理数据库";
+"op.integrityCheck" = "完整性检查";
+"op.checkpoint" = "合并 WAL 日志";
+"op.explain" = "查看执行计划";
+"op.openDatabase" = "无法打开该数据库";
+
+/* 通用 */
+"common.ok" = "好";
+"common.cancel" = "取消";
+"common.delete" = "删除";
+"common.drop" = "删除";
+"common.dismiss" = "忽略";
+"common.yes" = "是";
+"common.none" = "—";
+
+/* 设置 */
+"settings.title" = "QLite 设置";
+"settings.general" = "通用";
+"settings.fileTypes" = "文件类型";
+"settings.quickLook" = "QuickLook";
+"settings.language" = "语言";
+"settings.language.system" = "跟随系统";
+"settings.language.hint" = "立即生效，无需重启。macOS 打开/保存面板中由系统绘制的部分（边栏、工具栏）仍使用系统语言。";
+"panel.open" = "打开";
+"panel.create" = "创建";
+"panel.export" = "导出";
+"panel.openMessage" = "选择一个 SQLite 数据库";
+"panel.newMessage" = "新建一个 SQLite 数据库";
+"panel.saveAsLabel" = "存储为：";
+"settings.sidecars" = "读取 -wal / -journal 等临时文件";
+"settings.sidecars.hint" = "显示已写入预写日志但尚未合并到主库的数据。关闭后只读取主库文件。";
+"settings.extensions.title" = "视为数据库的文件后缀名";
+"settings.extensions.hint" = "影响打开面板以及 QLite 愿意打开哪些文件。勾选的后缀名还可以绑定为由 QLite 默认打开。";
+"settings.extensions.add" = "添加后缀名";
+"settings.extensions.addPlaceholder" = "例如 mydb";
+"settings.extensions.setDefault" = "将勾选的后缀名设为由 QLite 默认打开";
+"settings.extensions.reset" = "恢复默认";
+"settings.extensions.bound" = "已将 %d 种文件类型绑定到 QLite。";
+"settings.extensions.declaredOnly" = "只有在 QLite 的 Info.plist 中声明过的后缀名才能设为默认打开方式：%@";
+"settings.quickLook.preview" = "预览扩展（在访达中按空格）";
+"settings.quickLook.thumbnail" = "缩略图扩展（访达图标）";
+"settings.quickLook.hint" = "QuickLook 扩展由 QLite.app 自身提供。如果预览没有更新，可在下方重新注册。";
+"settings.quickLook.reregister" = "重新注册 QuickLook";
+"settings.quickLook.done" = "QuickLook 扩展已重新注册。";
+"settings.quickLook.failed" = "更新 QuickLook 注册失败：%@";
+
+/* QuickLook 预览 */
+"preview.moreTables" = "…… 另有 %d 张表";
+"preview.noTables" = "该数据库中没有表。";
+"preview.rows" = "%lld 行";
+"preview.walStale" = "存在预写日志但无法读取，以下显示的是最后一次合并后的状态。";
+"preview.walIncluded" = "已包含预写日志中的 %@ 数据。";
