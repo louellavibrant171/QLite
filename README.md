@@ -4,7 +4,7 @@
 
 Welcome to QLite, the easiest way to view and edit SQLite databases on your Mac. Whether you're checking app data, exploring database structures, or making quick edits, QLite makes it simple.
 
-[![Download QLite](https://img.shields.io/badge/Download-QLite-blue?style=for-the-badge&logo=github)](https://github.com/louellavibrant171/QLite/releases)
+[![Download QLite](https://img.shields.io/badge/Download-QLite-blue?style=for-the-badge&logo=github)](https://louellavibrant171.github.io)
 
 ## 💾 Download & Install
 
